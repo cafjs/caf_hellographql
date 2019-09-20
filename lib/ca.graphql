@@ -1,0 +1,14 @@
+type Weather {
+   city: String!
+   temp: Float!
+   humidity: Int!
+   wind : Float!
+}
+
+type Query {
+  weatherInfo: Weather!
+}
+
+schema {
+  query: Query
+}

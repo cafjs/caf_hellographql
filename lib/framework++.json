@@ -1,0 +1,59 @@
+{
+    "name": "top",
+    "env" : {
+        "appPublisher" :"process.env.APP_PUBLISHER||root",
+        "appLocalName" : "process.env.APP_LOCAL_NAME||hellographql",
+        "appSuffix" : "process.env.APP_SUFFIX||cafjs.com"
+     },
+    "components": [
+        {
+            "name": "log",
+            "env" : {
+                "logLevel" : "DEBUG"
+            }
+        },
+        {
+            "name": "cp2"
+        },
+        {
+            "name" : "react",
+            "module": "caf_react#plug",
+            "description": "React.js background rendering",
+            "env": {
+                "appFileName" : "../public/index.html",
+                "separator" : "<section id=\"content\">",
+                "cacheService" : "cp",
+                "expiresInSec" : 60
+            }
+        },
+        {
+            "name": "weather",
+            "module": "caf_weather#plug",
+            "description": "Weather service.",
+            "env" : {
+                "weatherURL" : "process.env.WEATHER_URL||https://samples.openweathermap.org/data/2.5/weather",
+                "openweathermap": "process.env.OPEN_WEATHER_MAP||true",
+                "weatherKeyAPI": "process.env.WEATHER_KEY_API||b6907d289e10d714a6e88b30761fae22"
+            }
+        },
+        {
+            "name": "graphql",
+            "module": "caf_graphql#plug",
+            "description": "GraphQL service.",
+            "env" : {
+                "schemaDir": "process.env.SCHEMA_DIR||null",
+                "schemaFileName" : "process.env.SCHEMA_FILE_NAME||ca.graphql"
+            }
+        },
+        {
+            "name" : "iot",
+            "module": "caf_iot#plug",
+            "description": "Access to an IoT device",
+            "env": {
+                "iotMethodsFileName" : "../iot/lib/iot_methods.js",
+                "iotDeviceManagerAppURL" :"process.env.IOT_DEVICE_MANAGER_APP_URL||https://root-gadget.cafjs.com",
+                "appDir" : null
+            }
+        }
+    ]
+}
