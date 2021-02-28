@@ -5,7 +5,7 @@
 # TO_BUILD:       cafjs mkImage . gcr.io/cafjs-k8/root-hellographql
 # TO_RUN:         cafjs run --appImage gcr.io/cafjs-k8/root-hellographql hellographql
 
-FROM node:12
+FROM node:14
 
 EXPOSE 3000
 
